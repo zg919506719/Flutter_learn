@@ -80,6 +80,7 @@ class RecycleState extends State {
           child: new ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               print("$index+index");
+              //手势
               return new GestureDetector(
                 onTap: () {
                   setState(() {
