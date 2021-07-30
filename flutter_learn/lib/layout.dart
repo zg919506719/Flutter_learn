@@ -21,24 +21,77 @@ class Linelayout extends StatelessWidget {
 class MyListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new ListView(children: [
-      new TextButton(
+    return new SizedBox(
+      height: 200,
+      child: new ListView(children: [
+        new TextButton(
+            onPressed: () {
+              print("List ");
+            },
+            child: new Row(
+              children: [
+                new Image(
+                    image: new AssetImage("asset/images/ic_launcher.png")),
+                new Text("data")
+              ],
+            )),
+        new Text("List 1"),
+        new Text("List 1"),
+        new Text("List 1"),
+        new Text("List 1"),
+        new Text("List 1"),
+        new Text("List 1"),
+        new Text("List 1"),
+      ]),
+    );
+  }
+}
+
+class RecycleView extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return RecycleState();
+  }
+}
+
+class RecycleState extends State {
+  List<String> Test = [];
+  var des;
+
+  @override
+  void initState() {
+    // Test.add(adapter(0));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        body: new Row(children: [
+      TextButton(
           onPressed: () {
-            print("List ");
+            setState(() {
+              Test.add("value");
+            });
           },
-          child: new Row(
-            children: [
-              new Image(image: new AssetImage("asset/images/ic_launcher.png")),
-              new Text("data")
-            ],
-          )),
-      new Text("List 1"),
-      new Text("List 1"),
-      new Text("List 1"),
-      new Text("List 1"),
-      new Text("List 1"),
-      new Text("List 1"),
-      new Text("List 1"),
-    ]);
+          child: new Text("data")),
+      new SizedBox(
+          height: 200,
+          width: 200,
+          child: new ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              print("$index+index");
+              return new GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Test.add("adapter(positon)");
+                  });
+                },
+                child: Text("$index"),
+              );
+              ;
+            },
+            itemCount: Test.length,
+          ))
+    ]));
   }
 }
