@@ -44,15 +44,36 @@ class EditTextState extends State {
             ),
             TextButton(
               onPressed: () {
-              var timer=Timer.periodic(Duration(seconds: 3), (timer) {
-                Fluttertoast.showToast(msg: "toast yi");
-                //关闭当前页面
-                Navigator.pop(context);
-                timer.cancel();
-              });
+                var timer = Timer.periodic(Duration(seconds: 3), (timer) {
+                  Fluttertoast.showToast(msg: "toast yi");
+                  //关闭当前页面
+                  Navigator.pop(context);
+                  timer.cancel();
+                });
               },
               child: new Text("$inputData"),
-            )
+            ),
+            TextButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        var alertDialog = AlertDialog(
+                          title: Text("tishi"),
+                          content: Text("sure delete"),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("确定"),
+                            )
+                          ],
+                        );
+                        return alertDialog;
+                      });
+                },
+                child: new Text("showAlertDialog"))
           ],
         )),
         CircularProgressIndicator()
