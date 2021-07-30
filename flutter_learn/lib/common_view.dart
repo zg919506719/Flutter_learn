@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -42,7 +44,12 @@ class EditTextState extends State {
             ),
             TextButton(
               onPressed: () {
+              var timer=Timer.periodic(Duration(seconds: 3), (timer) {
                 Fluttertoast.showToast(msg: "toast yi");
+                //关闭当前页面
+                Navigator.pop(context);
+                timer.cancel();
+              });
               },
               child: new Text("$inputData"),
             )
