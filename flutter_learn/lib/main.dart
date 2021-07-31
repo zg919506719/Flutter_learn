@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/common_view.dart';
 import 'package:flutter_learn/layout.dart';
+import 'package:flutter_learn/my_tab.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: EditText(),
+      home: MyTab(),
     );
   }
 }

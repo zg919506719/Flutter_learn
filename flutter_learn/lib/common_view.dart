@@ -73,10 +73,11 @@ class EditTextState extends State {
                         return alertDialog;
                       });
                 },
-                child: new Text("showAlertDialog"))
+                child: new Text("showAlertDialog")),
           ],
         )),
-        CircularProgressIndicator()
+        CircularProgressIndicator(),
+
       ],
     ));
   }
