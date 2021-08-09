@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/first_page.dart';
+import 'package:flutter_learn/my_drawer.dart';
 import 'package:flutter_learn/routes.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       //map
       routes: routes,
       //确定启动页
-      initialRoute: MY_TAB,
+      // initialRoute: MY_TAB,
     );
   }
 }
@@ -129,11 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
           decoration: BoxDecoration(color:Colors.orange),
         ),
       ),
-      drawer: Drawer(
-        child: Center(
-          child: Text('抽屉'),
-        ),
-      ),
+      drawer: myDrawer,
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
