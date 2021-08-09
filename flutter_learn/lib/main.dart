@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       //map
       routes: routes,
       //确定启动页
-      // initialRoute: MY_TAB,
+      initialRoute: MY_LIST,
     );
   }
 }
