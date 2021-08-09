@@ -25,11 +25,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: FirstPage(),
+      home:MyHomePage(key: Key('123'), title: '321',),
       //map
       routes: routes,
       //确定启动页
-      initialRoute: FIRST_PAGE,
+      initialRoute: BOTTOM_NAVIGATION,
     );
   }
 }
@@ -79,6 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        // leading: FlutterLogo(),
+        actions: [
+          IconButton(onPressed: (){
+            print("分享");
+          }, icon: Icon(Icons.share))
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -102,12 +108,30 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               'You have pushed the button this many times:',
+              style: TextStyle(
+                fontSize: 26.0,
+                color: Colors.orange,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic
+              ),
             ),
+            Icon(Icons.message),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 50,
+          decoration: BoxDecoration(color:Colors.orange),
+        ),
+      ),
+      drawer: Drawer(
+        child: Center(
+          child: Text('抽屉'),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -117,4 +141,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
